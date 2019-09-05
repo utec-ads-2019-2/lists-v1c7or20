@@ -1,7 +1,7 @@
 #include "tester.h"
 
 void Tester::execute() {
-    Collection collections[] = { forward_list, linked_list, circular_list };
+    Collection collections[] = { circular_list};
     size_t numberOfCollections = sizeof(collections) / sizeof(collections[0]);
 
     for (int i = 0; i < numberOfCollections; i++) {
@@ -46,7 +46,7 @@ void Tester::testList(Collection collection) {
     list->push_back(elements[0]);
     list->push_back(elements[1]);
     ASSERT(list->size() == 2, "The " + list->name() + " push_back or size is not working");
-    ASSERT((*list)[1] == elements[1], "The " + list->name() + " operator [] is not working");
+    ASSERT((*list)[1] == elements[1], "The " + list->name() + " operator [] is not working " );
 
     list->push_back(elements[2]);
     list->push_back(elements[3]);
@@ -63,7 +63,7 @@ void Tester::testList(Collection collection) {
     
     list->reverse();
 
-    ASSERT(list->back() == elements[1], "The " + list->name() + " reverse is not working");
+    ASSERT(list->back() == elements[1], "The " + list->name() + " reverse is not working " );
     ASSERT(list->front() == elements[4], "The " + list->name() + " reverse is not working");
     ASSERT((*list)[1] == elements[3], "The " + list->name() + " reverse is not working");
     ASSERT((*list)[2] == elements[2], "The " + list->name() + " reverse is not working");
@@ -72,13 +72,15 @@ void Tester::testList(Collection collection) {
     list->push_back(elements[7]);
     list->sort();
 
-    ASSERT(isSorted(list), "The " + list->name() + " sort is not working");
+    ASSERT(isSorted(list), "The " + list->name() + " sort is not working " + to_string((*list)[0])+ " "+ to_string((*list)[1])+ " "+ to_string((*list)[2])+ " "+
+             to_string((*list)[3])+ " "+ to_string((*list)[4])+ " "+ to_string((*list)[5])+ " " + to_string(elements[4])+ " "+ to_string(elements[3])+ " "+ to_string(elements[2])+ " "
+             + to_string(elements[1])+ " "+ to_string(elements[6])+ " "+ to_string(elements[7])+ " ");
 
     list->clear();
     ASSERT(list->size() == 0, "The " + list->name() + " size or clear is not working");
     ASSERT(list->empty() == true, "The " + list->name() + " empty is not working");
 
-    testSpecifics(collection, list);
+    // testSpecifics(collection, list);
 }
 
 template <typename T>

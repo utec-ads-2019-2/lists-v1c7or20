@@ -33,3 +33,5 @@ class List {
 };
 
 #endif
+
+//este algoritmo es hecho por Victor ->zZzzZ
