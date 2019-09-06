@@ -169,7 +169,7 @@ class CircularLinkedList : public List<T> {
         }
 
 	    BidirectionalIterator<T> end() {
-            // TODO
+            return this->tail;
         }
 
         void merge(CircularLinkedList<T> list) {

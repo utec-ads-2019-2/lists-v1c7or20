@@ -20,6 +20,7 @@ class ForwardIterator : public Iterator<T> {
 
         ForwardIterator<T> operator++() {
             this->current = this->current->next;
+            return *this;
         }
 
         T operator*() {

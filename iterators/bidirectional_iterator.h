@@ -20,10 +20,12 @@ class BidirectionalIterator : public Iterator<T> {
 
         BidirectionalIterator<T> operator++() {
             this->current=this->current->next;
+            return *this;
         }
 
         BidirectionalIterator<T> operator--() {
             this->current = this->current->prev;
+            return *this;
         }
 
         T operator*() {
