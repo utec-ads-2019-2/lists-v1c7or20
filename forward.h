@@ -59,6 +59,8 @@ class ForwardList : public List<T> {
             }else{
                 if (this->nodes == 1){
                     delete this->head;
+                    this->head = nullptr;
+                    this->tail= nullptr;
                     this->nodes--;
                 }else{
                     Node<T> *deleted = this->head;
@@ -74,6 +76,8 @@ class ForwardList : public List<T> {
             }else{
                 if (this->nodes == 1){
                 delete this->head;
+                this->head = nullptr;
+                this->tail= nullptr;
                 this->nodes--;
                 }else{
                     Node<T> *deleted = this->tail;
@@ -159,15 +163,20 @@ class ForwardList : public List<T> {
         }
 
         ForwardIterator<T> begin() {
-            // TODO
+            return this->head;
         }
 
 	    ForwardIterator<T> end() {
-            // TODO
+            return this->tail->next;
         }
 
         void merge(ForwardList<T> list) {
-            // TODO
+            int size_list = list.nodes;
+            Node<T> *iterador= list.head;
+            for (int i = 0; i <size_list ; i++) {
+                this->push_back(iterador->data);
+                iterador = iterador->next;
+            }
         }
 };
 

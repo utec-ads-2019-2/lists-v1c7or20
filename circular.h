@@ -60,6 +60,8 @@ class CircularLinkedList : public List<T> {
             }else{
                 if (this->nodes == 1){
                     delete this->head;
+                    this->head = nullptr;
+                    this->tail= nullptr;
                     this->nodes--;
                 }else{
                     Node<T> *deleted = this->head;
@@ -79,6 +81,8 @@ class CircularLinkedList : public List<T> {
             }else{
                 if (this->nodes == 1){
                     delete this->head;
+                    this->head = nullptr;
+                    this->tail= nullptr;
                     this->nodes--;
                 }else{
                     Node<T> *deleted = this->tail;
@@ -161,7 +165,7 @@ class CircularLinkedList : public List<T> {
         }
 
         BidirectionalIterator<T> begin() {
-            // TODO
+            return this->head;
         }
 
 	    BidirectionalIterator<T> end() {
@@ -169,7 +173,12 @@ class CircularLinkedList : public List<T> {
         }
 
         void merge(CircularLinkedList<T> list) {
-            // TODO
+            int size_list = list.nodes;
+            Node<T> *iterador= list.head;
+            for (int i = 0; i <size_list ; i++) {
+                this->push_back(iterador->data);
+                iterador = iterador->next;
+            }
         }
 };
 

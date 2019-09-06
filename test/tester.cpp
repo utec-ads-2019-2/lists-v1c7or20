@@ -1,7 +1,7 @@
 #include "tester.h"
 
 void Tester::execute() {
-    Collection collections[] = { circular_list};
+    Collection collections[] = {  forward_list,linked_list,circular_list};
     size_t numberOfCollections = sizeof(collections) / sizeof(collections[0]);
 
     for (int i = 0; i < numberOfCollections; i++) {
@@ -80,7 +80,7 @@ void Tester::testList(Collection collection) {
     ASSERT(list->size() == 0, "The " + list->name() + " size or clear is not working");
     ASSERT(list->empty() == true, "The " + list->name() + " empty is not working");
 
-    // testSpecifics(collection, list);
+    testSpecifics(collection, list);
 }
 
 template <typename T>
@@ -145,7 +145,7 @@ void Tester::testLinked(LinkedList<T>* list) {
 
     auto it = list->begin();
     ++it;
-    ASSERT(*it == elements[1], "The " + list->name() + " iterator is not working");
+    ASSERT(*it == elements[1], "The " + list->name() + " iterator is not working " + to_string(*it)+" " + to_string(elements[1]));
     ++it;
     ++it;
     --it;
@@ -167,7 +167,7 @@ void Tester::testCircularLinked(CircularLinkedList<T>* list) {
     list1->push_back(elements[4]);
 
     list->merge(*list1);
-    ASSERT(list->size() == 5, "The " + list->name() + " merge is not working");
+    ASSERT(list->size() == 5, "The " + list->name() + " merge is not working " + to_string(list->size()));
 
     auto it = list->begin();
     ++it;
