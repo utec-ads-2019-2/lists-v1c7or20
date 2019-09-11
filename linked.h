@@ -160,11 +160,11 @@ class LinkedList : public List<T> {
         }
 
         BidirectionalIterator<T> begin() {
-            return this->head;
+            return BidirectionalIterator<T>(this->head);
         }
 
 	    BidirectionalIterator<T> end() {
-            return this->tail->next;
+            return BidirectionalIterator<T>(this->tail->next);
         }
 
         void merge(LinkedList<T> list) {

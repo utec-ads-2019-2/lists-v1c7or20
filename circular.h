@@ -165,11 +165,12 @@ class CircularLinkedList : public List<T> {
         }
 
         BidirectionalIterator<T> begin() {
-            return this->head;
+            return BidirectionalIterator<T>(this->head);
         }
 
-	    BidirectionalIterator<T> end() {
-            return this->tail;
+        BidirectionalIterator<T> end() {
+            Node<T> *final = nullptr;
+            return BidirectionalIterator<T>(final);
         }
 
         void merge(CircularLinkedList<T> list) {

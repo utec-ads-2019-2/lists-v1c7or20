@@ -163,11 +163,11 @@ class ForwardList : public List<T> {
         }
 
         ForwardIterator<T> begin() {
-            return this->head;
+            return ForwardIterator<T>(this->head);
         }
 
 	    ForwardIterator<T> end() {
-            return this->tail->next;
+            return ForwardIterator<T>(this->tail->next);
         }
 
         void merge(ForwardList<T> list) {

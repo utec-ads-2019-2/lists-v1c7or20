@@ -73,3 +73,5 @@ cmake-build-debug/CMakeFiles/lists_v1c7or20.dir/cmake_clean.cmake
 cmake-build-debug/Makefile
 cmake-build-debug/CMakeFiles/lists_v1c7or20.dir/CXX.includecache
 cmake-build-debug/CMakeFiles/lists_v1c7or20.dir/depend.internal
+vc140.pdb
+.vscode/tasks.json
