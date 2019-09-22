@@ -169,6 +169,7 @@ class CircularLinkedList : public List<T> {
         }
 
         BidirectionalIterator<T> end() {
+            // Cómo te serviría end así en una lista circular?
             Node<T> *final = nullptr;
             return BidirectionalIterator<T>(final);
         }

@@ -18,6 +18,8 @@ class BidirectionalIterator : public Iterator<T> {
             return this->current!=other.current;
         }
 
+        // Faltaría controlar el caso donde sea null
+
         BidirectionalIterator<T> operator++() {
             this->current=this->current->next;
             return *this;

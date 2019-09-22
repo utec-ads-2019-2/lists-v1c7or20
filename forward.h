@@ -93,6 +93,7 @@ class ForwardList : public List<T> {
         }
 
         T operator[](int index) {
+            // Caso de índice negativo?
             if(index>=this->nodes){
                 throw "Excessive index";
             }else{
@@ -114,6 +115,7 @@ class ForwardList : public List<T> {
         }
 
         void clear() {
+            // Head y tail deberían volver a ser null
             this->head->killSelf();
             this->nodes = 0;
         }
@@ -144,6 +146,7 @@ class ForwardList : public List<T> {
         }
     
         void reverse() {
+            // Podría mejorarse
             int size = this->nodes;
             int *array= new int [size];
             Node<T>*iterador = this->head;
